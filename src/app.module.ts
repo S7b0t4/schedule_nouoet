@@ -3,10 +3,12 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { TeacherController } from './teacher/teacher.controller';
 import { TeacherModule } from './teacher/teacher.module';
 import { Teacher } from './teacher/teacher.model';
+import { AuditoriumModule } from './auditorium/auditorium.module';
 
 @Module({
   imports: [
     TeacherModule,
+    AuditoriumModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: 'localhost',

@@ -5,8 +5,8 @@ import { AuditoriumService } from './auditorium.service';
 import { Auditorium } from './auditorium.model';
 
 @Module({
-  imports: [SequelizeModule.forFeature([Auditorium])],
-  controllers: [AuditoriumController],
-  providers: [AuditoriumService]
+	imports: [SequelizeModule.forFeature([Auditorium])],
+	controllers: [AuditoriumController],
+	providers: [AuditoriumService],
 })
-export class AuditoriumModule { }
+export class AuditoriumModule {}

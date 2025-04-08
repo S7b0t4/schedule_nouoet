@@ -1,18 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber } from 'class-validator';
 
-export class AuditoriumChangeDto {
+export class GroupChangeDto {
 	@ApiProperty({
-		description: 'ID of the teacher',
+		description: 'ID of the group',
 		type: Number,
 		example: 1,
 	})
 	@IsNumber()
 	id: number;
 	@ApiProperty({
-		description: 'number of this auditorium',
-		type: Number,
-		example: 110,
+		description: 'title of this group',
+		type: String,
+		example: '1Пр1-23',
 	})
-	number: number;
+	title: string;
 }

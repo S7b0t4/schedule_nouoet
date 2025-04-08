@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber } from 'class-validator';
 
-export class TeacherDeleteDto {
+export class GroupDeleteDto {
 	@ApiProperty({
-		description: 'ID of the teacher',
+		description: 'ID of the group',
 		type: Number,
 		example: 1,
 	})

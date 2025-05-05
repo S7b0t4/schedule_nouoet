@@ -8,7 +8,7 @@ import { AuditoriumChangeDto } from './dto/auditorium_change.dto';
 export class AuditoriumService {
 	constructor(
 		@InjectModel(Auditorium) private auditoriumModel: typeof Auditorium,
-	) {}
+	) { }
 
 	async create(dto: Auditorium) {
 		return await this.auditoriumModel.create(dto);
@@ -28,12 +28,12 @@ export class AuditoriumService {
 		return condidate;
 	}
 
-	async delete(dto: AuditoriumDeleteDto) {
+	async delete(id: number) {
 		const condidate = await this.auditoriumModel.destroy({
-			where: { id: dto.id },
+			where: { id: id },
 		});
 		if (!condidate) {
-			throw new NotFoundException(`Auditorium with id ${dto.id} not found`);
+			throw new NotFoundException(`Auditorium with id ${id} not found`);
 		}
 		return condidate;
 	}

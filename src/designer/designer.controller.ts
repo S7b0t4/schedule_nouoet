@@ -5,7 +5,7 @@ import { DesignerGroupByTimeAndGroupDto } from './dto/designer.group_by_time_and
 
 @Controller('schedule')
 export class DesignerController {
-	constructor(private readonly designerService: DesignerService) {}
+	constructor(private readonly designerService: DesignerService) { }
 
 	@Post('/group_by_time')
 	async create_group_by_time(@Body() dto: DesignerGroupByTimeDto) {

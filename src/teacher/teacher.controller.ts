@@ -3,8 +3,8 @@ import {
 	Controller,
 	Delete,
 	Get,
-	Post,
 	Put,
+	Post,
 	Query,
 } from '@nestjs/common';
 import { TeacherService } from './teacher.service';
@@ -13,7 +13,7 @@ import { TeacherChangeDto } from './dto/teacher_change.dto';
 
 @Controller('teacher')
 export class TeacherController {
-	constructor(private readonly teacherService: TeacherService) {}
+	constructor(private readonly teacherService: TeacherService) { }
 	@Post('/create')
 	async create(@Body() dto: Teacher) {
 		await this.teacherService.create(dto);
@@ -31,7 +31,6 @@ export class TeacherController {
 
 	@Delete('/delete')
 	async delete(@Query('id') id: number) {
-		console.log(id);
 		return await this.teacherService.delete(id);
 	}
 }

@@ -7,7 +7,6 @@ import { InjectModel } from '@nestjs/sequelize';
 import { ScheduleChangeDto } from './dto/schedule_change.dto';
 import { ScheduleDeleteDto } from './dto/schedule_delete.dto';
 import { Schedule } from './schedule.model';
-import { Sequelize } from 'sequelize';
 
 @Injectable()
 export class ScheduleService {

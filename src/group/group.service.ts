@@ -6,7 +6,7 @@ import { GroupDeleteDto } from './dto/group_delete.dto';
 
 @Injectable()
 export class GroupService {
-	constructor(@InjectModel(Group) private groupModel: typeof Group) {}
+	constructor(@InjectModel(Group) private groupModel: typeof Group) { }
 
 	async create(dto: Group) {
 		return await this.groupModel.create(dto);
@@ -26,10 +26,10 @@ export class GroupService {
 		return condidate;
 	}
 
-	async delete(dto: GroupDeleteDto) {
-		const condidate = await this.groupModel.destroy({ where: { id: dto.id } });
+	async delete(id: number) {
+		const condidate = await this.groupModel.destroy({ where: { id: id } });
 		if (!condidate) {
-			throw new NotFoundException(`Subject with id ${dto.id} not found`);
+			throw new NotFoundException(`Subject with id ${id} not found`);
 		}
 		return condidate;
 	}

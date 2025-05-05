@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+	Body,
+	Controller,
+	Delete,
+	Get,
+	Post,
+	Put,
+	Query,
+} from '@nestjs/common';
 import { SubjectService } from './subject.service';
 import { Subject } from './subject.model';
 import { SubjectChangeDto } from './dto/subject_change.dto';
@@ -6,7 +14,7 @@ import { SubjectDeleteDto } from './dto/subject_delete.dto';
 
 @Controller('subject')
 export class SubjectController {
-	constructor(private readonly subjectService: SubjectService) {}
+	constructor(private readonly subjectService: SubjectService) { }
 	@Post('/create')
 	async create(@Body() dto: Subject) {
 		return await this.subjectService.create(dto);
@@ -23,7 +31,7 @@ export class SubjectController {
 	}
 
 	@Delete('/delete')
-	async delete(@Body() dto: SubjectDeleteDto) {
-		return await this.subjectService.delete(dto);
+	async delete(@Query('id') id: number) {
+		return await this.subjectService.delete(id);
 	}
 }

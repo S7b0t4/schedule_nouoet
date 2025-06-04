@@ -75,10 +75,6 @@ ctrl + c
 docker start schedule_nouoet-db-1
 ```
 
-```bash
-cd backend
-```
-
 2. Запусти сервер:
 
 ```bash

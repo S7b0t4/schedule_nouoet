@@ -12,10 +12,8 @@ export class DesignerController {
 		return await this.designerService.create_group_by_time(dto);
 	}
 
-	@Post('/group_by_time_and_group')
-	async create_group_by_time_and_group(
-		@Body() dto: DesignerGroupByTimeAndGroupDto,
-	) {
-		return await this.designerService.create_group_by_time_and_group(dto);
+	@Post('/group_by_group')
+	async create_group_by_group(@Body() dto: DesignerGroupByTimeAndGroupDto) {
+		return await this.designerService.create_group_by_group(dto);
 	}
 }

@@ -6,7 +6,7 @@ async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
 	const PORT = process.env.PORT;
 	app.enableCors({
-		origin: process.env.CLIENT_URL,
+		origin: [process.env.ADMIN_URL, process.env.CLIENT_URL],
 		credential: true,
 	});
 	const config = new DocumentBuilder()

@@ -1,7 +1,14 @@
-import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+	Body,
+	Controller,
+	Delete,
+	Get,
+	Post,
+	Put,
+	Query,
+} from '@nestjs/common';
 import { ScheduleChangeDto } from './dto/schedule_change.dto';
 import { Schedule } from './schedule.model';
-import { ScheduleDeleteDto } from './dto/schedule_delete.dto';
 import { ScheduleService } from './schedule.service';
 
 @Controller('schedule')
@@ -23,7 +30,7 @@ export class ScheduleController {
 	}
 
 	@Delete('/delete')
-	async delete(@Body() dto: ScheduleDeleteDto) {
-		return await this.scheduleService.delete(dto);
+	async delete(@Query('id') id: number) {
+		return await this.scheduleService.delete(id);
 	}
 }

@@ -5,6 +5,7 @@ import {
 	Model,
 	ForeignKey,
 	DataType,
+	BelongsTo,
 } from 'sequelize-typescript';
 import { Auditorium } from 'src/auditorium/auditorium.model';
 import { Group } from 'src/group/group.model';
@@ -18,15 +19,22 @@ export class Schedule extends Model<Schedule> {
 		example: 1,
 	})
 	@ForeignKey(() => Auditorium)
-	@Column
+	@Column({
+		onDelete: 'CASCADE',
+	})
 	auditorium_id: number;
+
+	@BelongsTo(() => Auditorium)
+	auditorium: Auditorium;
 
 	@ApiProperty({
 		type: Number,
 		example: 1,
 	})
 	@ForeignKey(() => Group)
-	@Column
+	@Column({
+		onDelete: 'CASCADE',
+	})
 	group_id: number;
 
 	@ApiProperty({
@@ -34,16 +42,26 @@ export class Schedule extends Model<Schedule> {
 		example: 1,
 	})
 	@ForeignKey(() => Subject)
-	@Column
+	@Column({
+		onDelete: 'CASCADE',
+	})
 	subject_id: number;
+
+	@BelongsTo(() => Subject)
+	subject: Subject;
 
 	@ApiProperty({
 		type: Number,
 		example: 1,
 	})
 	@ForeignKey(() => Teacher)
-	@Column
+	@Column({
+		onDelete: 'CASCADE',
+	})
 	teacher_id: number;
+
+	@BelongsTo(() => Teacher)
+	teacher: Teacher;
 
 	@ApiProperty({
 		type: String,

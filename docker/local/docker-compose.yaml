@@ -1,0 +1,9 @@
+# docker-compose.yaml
+version: '3.8'
+
+services:
+  schedule_server_local:
+    build: .
+    ports:
+      - "3000:3000"
+

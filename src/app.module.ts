@@ -6,9 +6,13 @@ import { SubjectModule } from './subject/subject.module';
 import { GroupModule } from './group/group.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { DesignerModule } from './designer/designer.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
 	imports: [
+		ConfigModule.forRoot({
+			isGlobal: true,
+		}),
 		TeacherModule,
 		AuditoriumModule,
 		SubjectModule,
@@ -27,4 +31,4 @@ import { DesignerModule } from './designer/designer.module';
 		}),
 	],
 })
-export class AppModule {}
+export class AppModule { }

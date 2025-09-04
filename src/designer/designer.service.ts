@@ -15,7 +15,7 @@ export class DesignerService {
 		@InjectModel(Subject) private subjectModel: typeof Subject,
 		@InjectModel(Teacher) private teacherModel: typeof Teacher,
 		@InjectModel(Auditorium) private auditoriumModel: typeof Auditorium,
-	) { }
+	) {}
 
 	async create_group_by_time(dto: DesignerGroupByTimeDto) {
 		try {
@@ -43,6 +43,7 @@ export class DesignerService {
 					group_id: dto.groupId,
 				},
 				include: [this.subjectModel, this.teacherModel, this.auditoriumModel],
+				order: [['startDate', 'ASC']],
 			});
 			return group;
 		} catch (e) {

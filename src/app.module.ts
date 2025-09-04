@@ -7,6 +7,10 @@ import { GroupModule } from './group/group.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { DesignerModule } from './designer/designer.module';
 import { ConfigModule } from '@nestjs/config';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
 	imports: [
@@ -19,6 +23,8 @@ import { ConfigModule } from '@nestjs/config';
 		GroupModule,
 		ScheduleModule,
 		DesignerModule,
+		UserModule,
+		AuthModule,
 		SequelizeModule.forRoot({
 			dialect: 'postgres',
 			host: 'localhost',

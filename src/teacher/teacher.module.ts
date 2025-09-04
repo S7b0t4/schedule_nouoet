@@ -9,4 +9,4 @@ import { SequelizeModule } from '@nestjs/sequelize';
 	controllers: [TeacherController],
 	providers: [TeacherService],
 })
-export class TeacherModule {}
+export class TeacherModule { }
